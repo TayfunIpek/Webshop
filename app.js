@@ -1,7 +1,6 @@
 // imports
 const express = require('express');
 const path = require('path');
-//const favicon = require('serve-favicon');
 const app = express();
 const port = process.env.port || 80;
 
@@ -22,7 +21,6 @@ var router = express.Router();
 router.use(function(req, res, next) {
     console.log(req.method, req.url);
     next();
-    //app.use(favicon(__dirname + '/public/img/favicon.ico'));
 });
 
 // views
@@ -30,6 +28,26 @@ router.use(function(req, res, next) {
 router.get('/', function(req, res) {
     res.render('index');
 });
+
+//producten pagina
+router.get('/producten', function(req, res) {
+    res.render('producten')
+})
+
+//overons pagina
+router.get('/overons', function(req, res) {
+    res.render('overons')
+})
+
+//contact pagina
+router.get('/contact', function(req, res) {
+	res.render('contact')
+})
+
+//account pagina
+router.get('/account', function(req, res) {
+	res.render('account')
+})
 
 app.use('/', router);
 app.listen(port);
